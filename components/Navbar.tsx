@@ -3,12 +3,16 @@ import React from 'react'
 import Home from '../pages'
 import notify from '../utils/notify'
 
-// Header: Home  About  Docs  Community  Trade
+// Headers: Home  About  Trade
 const headers = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/#' },
-  { label: 'Docs', href: '/#' },
-  { label: 'Community', href: '/#' },
+]
+
+// Headers2: Docs  Community
+const headers2 = [
+  { label: 'Docs', href: 'https://docs.google.com/document/d/1rafYJwM2TWJVFifehBzTQOE5zmkxsGHpovpbPVMuz2o/edit?usp=sharing'},
+  { label: 'Community', href: 'https://twitter.com/DRexProtocol'}
 ]
 
 const Navbar = () => {
@@ -81,6 +85,20 @@ const NavElements = () => {
           {label}
         </a>
       ))}
+
+      {headers2.map(({ label, href }, index) => (
+        <a
+          key={index}
+          href={href}
+          className={'hover:scale-105 font-semibold w-full text-center ' + (router.pathname === href ? 'bg-primary/50 md:bg-primary/0 text-white p-3 md:p-0 rounded-lg' : 'text-gray-200 hover:text-white ')}
+          //onClick={(e) => {
+            //window.open(href)
+          //}}
+        >
+          {label}
+        </a>
+      ))}
+      
       <a
         href='#'
         className='text-white text-center font-semibold bg-primary hover:scale-105 py-2 px-4 rounded w-full md:w-fit justify-self-end'
